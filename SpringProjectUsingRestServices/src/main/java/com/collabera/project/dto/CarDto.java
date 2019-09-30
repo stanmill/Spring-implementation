@@ -1,19 +1,20 @@
 package com.collabera.project.dto;
 
+import java.math.BigInteger;
 import java.time.LocalDate;
 
 public class CarDto {
 	
-	private Long id;
+	private BigInteger id;
 	private String carBrand;
 	private String carName;
 	private LocalDate releaseDate;
 	private String carType;
 		
-	public Long getId() {
+	public BigInteger getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(BigInteger id) {
 		this.id = id;
 	}
 	public String getCarBrand() {

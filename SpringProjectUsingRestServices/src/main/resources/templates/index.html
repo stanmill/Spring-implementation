@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+	<meta charset="UTF-8"/>
+		<title>List of Cars</title>
+		<link href="" rel="stylesheet"/>
+	</head>
+	<body>
+		<table>
+		<tr>
+			<th>Room Number</th>
+			<th>Name</th>
+			<th>Bed Info</th>		
+		</tr>
+		<tr th:each="car:${cars}">
+			<td th:text="${room.name}">117</td>
+			<td>stanley</td>
+			<td>a basic room</td>
+		</tr>
+		</table>
+	</body>
+</html>

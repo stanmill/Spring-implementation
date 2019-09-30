@@ -1,14 +1,16 @@
 package com.collabera.project.model;
 
+import java.math.BigInteger;
 import java.time.LocalDate;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-
+@Document(collection="list_of_cars")
 public class CarModel {
 	
 	@Id
-	private Long id;
+	private BigInteger id;
 	private String carBrand;
 	private String carName;
 	private LocalDate releaseDate;
@@ -18,7 +20,7 @@ public class CarModel {
 		
 	}
 	
-	public CarModel(Long id, String carBrand, String carName, LocalDate releaseDate, String carType) {
+	public CarModel(BigInteger id, String carBrand, String carName, LocalDate releaseDate, String carType) {
 		super();
 		this.id = id;
 		this.carBrand = carBrand;
@@ -28,11 +30,11 @@ public class CarModel {
 	}
 
 
-	public Long getId() {
+	public BigInteger getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(BigInteger id) {
 		this.id = id;
 	}
 
