@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,11 +29,16 @@ public class CarController {
 		return service.findAll();
 	}
 	
-	@GetMapping("api/cars/{id}")
-	public ResponseEntity<CarDto> findByid(@PathVariable BigInteger id) {
-		CarDto dto = service.findByid(id);
-		return ResponseEntity.ok(dto);
-		
+	@GetMapping("/api/cars/{id}")
+	public ResponseEntity<CarDto> findById(@PathVariable BigInteger id) {
+		CarDto dto = service.findById(id);
+		return ResponseEntity.ok(dto);	
+	}
+	
+	@DeleteMapping("/api/cars/{id}")
+	public ResponseEntity<CarDto> deleteById(@PathVariable BigInteger id){
+		service.deleteById(id);
+		return ResponseEntity.ok().build();
 	}
 
 }

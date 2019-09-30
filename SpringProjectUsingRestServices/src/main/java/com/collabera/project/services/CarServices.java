@@ -30,12 +30,16 @@ public class CarServices {
 		return repo.findAll().stream().map(m -> map.toDto(m)).collect(Collectors.toList());
 	}
 	
-	public CarDto findByid(BigInteger id) {
+	public CarDto findById(BigInteger id) {
 		Optional<CarModel> car = repo.findById(id);
 		if(car.isPresent()) {
 			return map.toDto(car.get());
 		}
 		return null;
+	}
+	
+	public void deleteById(BigInteger id) {
+		repo.deleteById(id);
 	}
 		
 }
