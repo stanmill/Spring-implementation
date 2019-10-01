@@ -25,7 +25,6 @@ public class CarServices {
 		this.map = map;
 	}
 	
-
 	public List<CarDto> findAll(){
 		return repo.findAll().stream().map(m -> map.toDto(m)).collect(Collectors.toList());
 	}
@@ -36,6 +35,28 @@ public class CarServices {
 			return map.toDto(car.get());
 		}
 		return null;
+	}
+	
+	public CarDto save(CarDto car) {
+		CarModel entity = map.toEntity(car);
+		CarModel saved = repo.save(entity);
+		return map.toDto(saved);
+	}
+	
+	public CarDto update(CarDto car) {
+		BigInteger id = car.getId();
+		Optional<CarModel> findById = repo.findById(id);
+		if(findById.isPresent()) {
+			CarModel updatedCar = findById.get();
+			updatedCar.setCarBrand(car.getCarBrand());
+			updatedCar.setCarName(car.getCarName());
+			updatedCar.setCarType(car.getCarType());
+			updatedCar.setReleaseDate(car.getReleaseDate());
+			CarModel saved = repo.save(updatedCar);
+			return map.toDto(saved);
+		} else {
+			throw new IllegalArgumentException();
+		}
 	}
 	
 	public void deleteById(BigInteger id) {
