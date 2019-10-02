@@ -24,8 +24,6 @@ public class CarMapper {
 		car.setCarType(entity.getCarType());
 		car.setId(entity.getId());
 		car.setReleaseDate(entity.getReleaseDate());
-		return car;
-		
+		return car;	
 	}
-
 }

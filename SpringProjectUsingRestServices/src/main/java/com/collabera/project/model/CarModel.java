@@ -29,7 +29,6 @@ public class CarModel {
 		this.carType = carType;
 	}
 
-
 	public BigInteger getId() {
 		return id;
 	}
@@ -68,7 +67,6 @@ public class CarModel {
 
 	public void setCarType(String carType) {
 		this.carType = carType;
-	}
-	
+	}	
 
 }
